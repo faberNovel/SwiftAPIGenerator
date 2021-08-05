@@ -8,7 +8,7 @@
 import Foundation
 import SourceKittenFramework
 
-struct KotlinSwiftAPIGenerator {
+struct SwiftInterfaceGenerator {
 
     func generateInterface(for request: SourceKitObject) throws -> String? {
         try Request

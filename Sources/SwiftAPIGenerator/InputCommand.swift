@@ -29,7 +29,7 @@ struct InputCommand: ParsableCommand {
             frameworkPath: frameworkPath,
             moduleName: moduleName
         ).build()
-        let generatedHeader = try KotlinSwiftAPIGenerator().generateInterface(for: request) ?? "<null>"
+        let generatedHeader = try SwiftInterfaceGenerator().generateInterface(for: request) ?? "<null>"
         try SwiftInterfaceWriter(interfaceString: generatedHeader, outputPath: output).write()
     } catch {
         print(error)
