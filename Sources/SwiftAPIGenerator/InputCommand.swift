@@ -24,7 +24,13 @@ struct InputCommand: ParsableCommand {
 
   func run() throws {
     do {
-
+        let request = SwiftInterfaceRequestBuilder(
+            sdkPath: sdkPath,
+            frameworkPath: frameworkPath,
+            moduleName: moduleName
+        ).build()
+        let generatedHeader = try KotlinSwiftAPIGenerator().generateInterface(for: request) ?? "<null>"
+        try SwiftInterfaceWriter(interfaceString: generatedHeader, outputPath: output).write()
     } catch {
         print(error)
     }
